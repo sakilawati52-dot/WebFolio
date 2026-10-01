@@ -61,6 +61,10 @@ svg{flex-shrink:0}
 .chip.owner{color:#facc15;border-color:#facc1555}.chip.admin{color:#79a8ff;border-color:#79a8ff55}
 .avatar{border-radius:50%;object-fit:cover;background:var(--surface2)}
 .avatarFb{border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:var(--fd)}
+.avWrap{position:relative;display:inline-flex;flex-shrink:0}
+.avWrap .avInner{display:flex;width:100%;height:100%}
+.avWrap .avInner .avatar,.avWrap .avInner .avatarFb{width:100%!important;height:100%!important}
+.vTick{position:absolute;right:-2px;bottom:-2px;background:#1d9bf0;border:2px solid var(--surface);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
 
 /* ---------- Auth ---------- */
 .auth{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr}
@@ -138,7 +142,7 @@ svg{flex-shrink:0}
 .shot .tag{position:absolute;top:10px;left:10px;display:flex;gap:6px}
 .cbody{padding:14px 14px 10px;flex:1;display:flex;flex-direction:column;gap:9px}
 .ctitle{display:flex;gap:11px;align-items:center}
-.sicon{width:42px;height:42px;border-radius:11px;background:var(--surface2);border:1px solid var(--line);object-fit:cover;flex-shrink:0}
+.sicon{width:42px;height:42px;border-radius:11px;background:var(--surface2);border:1px solid var(--line);background-size:cover;background-position:center;flex-shrink:0}
 .sicon.fbk{display:flex;align-items:center;justify-content:center;font:700 16px var(--fd);color:var(--blue)}
 .ctitle h3{font-family:var(--fb);font-size:15px;font-weight:700;line-height:1.25}
 .ctitle .host{font-size:12px;color:var(--blue);word-break:break-all}
@@ -258,6 +262,37 @@ svg{flex-shrink:0}
 .ib.on{color:var(--blue);border-color:#4f8cff66}.ib.on svg{fill:var(--blue)}
 .card .cact{padding-top:2px}
 .shot .cat2{position:absolute;right:10px;top:10px;background:#0b1020d9}
+
+/* ---------- v4: badge, tim, papan peringkat, log aktivitas ---------- */
+.bdg{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 7px 2px 6px;border-radius:20px;white-space:nowrap;vertical-align:middle}
+.nameRow{display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap}
+.badgeChecks{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.badgeChecks label{position:relative}.badgeChecks label input{position:absolute;opacity:0}
+.badgeChecks label span{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface2);font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer}
+.badgeChecks label input:checked+span{border-color:currentColor}
+.teamGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.teamCard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center;cursor:pointer;transition:.15s}
+.teamCard:hover{border-color:#3a4a86;transform:translateY(-2px)}
+.teamCard .avatar,.teamCard .avatarFb{margin:0 auto 10px}
+.teamCard h4{font-size:14.5px;margin-bottom:4px}
+.lbRow{display:flex;align-items:center;gap:13px;padding:12px;border-bottom:1px solid var(--line)}
+.lbRow .rank{width:26px;text-align:center;font:800 14px var(--fd);color:var(--muted);flex-shrink:0}
+.lbRow:nth-child(1) .rank{color:#facc15}.lbRow:nth-child(2) .rank{color:#c7cede}.lbRow:nth-child(3) .rank{color:#e5a765}
+.lbRow .sc{margin-left:auto;text-align:right;font-size:12px;color:var(--muted)}.lbRow .sc b{display:block;font:700 15px var(--fd);color:var(--text)}
+.logRow{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}
+.logRow .li{width:32px;height:32px;border-radius:10px;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue)}
+.logRow b{font-size:13px}.logRow small{display:block;color:var(--muted);font-size:11.5px;margin-top:1px}
+
+/* ---------- v5: kategori dinamis, blokir pengguna, edit komentar, moderasi massal, statistik ---------- */
+.revPick{position:absolute;top:10px;right:10px;width:21px;height:21px;accent-color:var(--blue);z-index:3;box-shadow:0 1px 6px rgba(0,0,0,.5);border-radius:5px}
+.bulkBar{position:sticky;top:64px;z-index:5;display:flex;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--line);border-radius:13px;padding:10px 14px;margin-bottom:14px}
+.bulkBar span{font-size:13px;color:var(--muted)}
+.catEdit{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.catEdit .cx{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:20px;background:var(--surface2);border:1px solid var(--line);font-size:12px}
+.catEdit .cx button{color:var(--muted);font-size:13px;line-height:1}
+.growBars{display:flex;align-items:flex-end;gap:6px;height:90px;margin:10px 0}
+.growBars .gb{flex:1;background:linear-gradient(180deg,var(--blue),var(--violet));border-radius:5px 5px 0 0;min-height:3px;position:relative}
+.growBars .gb small{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:9.5px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -300,7 +335,6 @@ svg{flex-shrink:0}
     <div class="logo"><span id="logoS"></span><span>Web<b>Folio</b></span></div>
     <nav id="navWrap"></nav>
     <div class="sideFoot">
-      <button class="btn hide" id="installBtn"></button>
       <div style="display:flex;gap:8px"><button class="meCard" id="meCard"><span id="meAv"></span><span style="min-width:0"><div class="nm" id="meName"></div><div class="rl" id="meRole"></div></span></button><button class="btn icon" id="logoutBtn" title="Keluar" style="align-self:stretch;padding:0 12px"></button></div>
       <div class="legalRow"><button class="linkBtn" style="text-decoration:none" onclick="openLegal('privacy')">Kebijakan Privasi</button><span>·</span><button class="linkBtn" style="text-decoration:none" onclick="openLegal('terms')">Syarat</button></div>
     </div>
@@ -327,6 +361,9 @@ svg{flex-shrink:0}
       </div>
       <div id="view-mine" class="hide"><div class="head"><div><h2>Website yang kamu bagikan</h2><p>Kelola dan edit karyamu di sini.</p></div></div><div class="grid" id="mineGrid"></div></div>
       <div id="view-saved" class="hide"><div class="head"><div><h2>Tersimpan</h2><p>Website yang kamu simpan untuk dibuka nanti.</p></div></div><div class="grid" id="savedGrid"></div></div>
+      <div id="view-leaderboard" class="hide"><div class="head"><div><h2>Papan Peringkat</h2><p>Pencipta website dengan like terbanyak dari komunitas.</p></div></div><div id="lbList" style="max-width:680px"></div></div>
+      <div id="view-team" class="hide"><div class="head"><div><h2>Tim &amp; Kontributor</h2><p>Orang-orang di balik WebFolio: developer, admin, moderator, partner, dan kontributor.</p></div></div><div class="teamGrid" id="teamGrid"></div></div>
+      <div id="view-log" class="hide"><div class="head"><div><h2>Log Aktivitas</h2><p>Riwayat tindakan moderasi oleh admin dan owner.</p></div></div><div id="logList" style="max-width:760px"></div></div>
       <div id="view-ann" class="hide"><div class="head"><div><h2>Pengumuman</h2><p>Kabar, fitur baru, dan peringatan dari tim WebFolio.</p></div><button class="btn primary sm hide" id="annNew"></button></div><div id="annList" style="max-width:720px"></div></div>
       <div id="view-dash" class="hide"><div id="dashBody"></div></div>
       <div id="view-reports" class="hide"><div class="head"><div><h2>Laporan pengguna</h2><p>Website yang dilaporkan komunitas.</p></div></div><div id="repList" style="max-width:820px"></div></div>
@@ -339,7 +376,7 @@ svg{flex-shrink:0}
         <div id="fbList" style="margin-top:22px;max-width:720px"></div>
       </div>
       <div id="view-review" class="hide"><div class="head"><div><h2>Menunggu tinjauan</h2><p>Ditandai otomatis oleh pendeteksi heuristik — bukan jaminan 100% akurat.</p></div></div><div class="grid" id="reviewGrid"></div></div>
-      <div id="view-admin" class="hide"><div class="head"><div><h2>Kelola website</h2><p>Blokir atau buka blokir website dari semua pengguna.</p></div></div><div class="grid" id="adminGrid"></div></div>
+      <div id="view-admin" class="hide"><div class="head"><div><h2>Kelola website</h2><p>Blokir atau buka blokir website dari semua pengguna.</p></div><button class="btn sm ghost" onclick="exportSitesCSV()">Ekspor CSV</button></div><div class="grid" id="adminGrid"></div></div>
       <div id="view-users" class="hide"><div class="head"><div><h2>Kelola pengguna</h2><p>Atur role: biasa, admin, atau owner/developer.</p></div></div><div style="max-width:780px"><div class="filters"><div class="sw"><span id="usrIc"></span><input id="userSearch" placeholder="Cari nama atau email..."></div></div><div id="userList"></div></div></div>
     </main>
   </div>
@@ -481,7 +518,15 @@ const ICONS = {
   alert:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.4"/>',
   link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
   info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.4"/>',
-  sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>'
+  sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',
+  team:'<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5M14 15c3 0 6 2 6 5"/>',
+  trophy:'<path d="M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3M9 20h6M12 14v6"/>',
+  activity:'<path d="M3 12h4l2-7 4 14 2-7h6"/>',
+  handshake:'<path d="M3 11l4-4 4 4 2-2 4 4-4 4-2-2-4 4-4-4z"/><path d="M7 7l3 3M17 13l-3-3"/>',
+  crown:'<path d="M3 8l4 4 5-7 5 7 4-4-2 10H5z"/><path d="M5 20h14"/>',
+  csv:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/>',
+  block:'<circle cx="12" cy="12" r="9"/><path d="M6.5 6.5l11 11"/>',
+  tag:'<path d="M4 4h7l9 9-7 7-9-9z"/><circle cx="8.5" cy="8.5" r="1.3"/>'
 };
 const ic = (n, s=18) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[n]||''}</svg>`;
 const LOGO = s => `<svg width="${s}" height="${s}" viewBox="0 0 40 40"><defs><linearGradient id="g${s}" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#4f8cff"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><path d="M4 9 L13 31 L20 15 L27 31 L36 9" fill="none" stroke="url(#g${s})" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -499,8 +544,11 @@ const isApproved = s => !s.status || s.status==='approved';
 const roleForEmail = e => (e||'').toLowerCase()===OWNER_EMAIL ? 'owner' : 'biasa';
 function avatar(u, size){
   const a = safeImg(u&&u.avatarUrl);
-  return a ? `<img class="avatar" width="${size}" height="${size}" style="width:${size}px;height:${size}px" src="${esc(a)}" alt="">`
+  const base = a ? `<img class="avatar" width="${size}" height="${size}" style="width:${size}px;height:${size}px" src="${esc(a)}" alt="">`
     : `<div class="avatarFb" style="width:${size}px;height:${size}px;font-size:${Math.round(size*.42)}px">${esc(initials(u&&u.displayName))}</div>`;
+  if(!(u&&(u.badges||[]).includes('verified'))) return base;
+  const bs=Math.max(11,Math.round(size*.36));
+  return `<span class="avWrap" style="width:${size}px;height:${size}px"><span class="avInner">${base}</span><span class="vTick" style="width:${bs}px;height:${bs}px">${ic('check',Math.round(bs*.62))}</span></span>`;
 }
 let tT; function toast(m, type){ const t=$('toast'); t.textContent=m; t.className='show '+(type||''); clearTimeout(tT); tT=setTimeout(()=>t.className='',3400); }
 function iconSrc(s){ return safeImg(s.iconUrl) || (safeLink(s.url)!=='#' ? `https://www.google.com/s2/favicons?domain=${encodeURIComponent(hostOf(s.url))}&sz=128` : ''); }
@@ -552,13 +600,27 @@ let currentUser=null, profile=null, isReg=false, editingId=null, currentView='fe
 let feedSites=[], mineSites=[], pendingSites=[], cache={}, feedLimit=36;
 let feedUnsub=null, mineUnsub=null, pendUnsub=null, chatUnsub=null, cmtUnsub=null, chatListUnsub=null;
 let searchQuery='', sortMode='new', openDetailId=null, viewed=new Set();
-let upIcon='', upImg='', extraUnsubs=[], notifs=[], anns=[], savedIds=new Set(), reportsOpen=[], catFilter='all', feedLoaded=false, appCfg={}, allUsers=[], userQ='';
+let upIcon='', upImg='', extraUnsubs=[], notifs=[], anns=[], savedIds=new Set(), reportsOpen=[], catFilter='all', feedLoaded=false, appCfg={}, allUsers=[], userQ='', teamList=[], auditLog=[], blockedIds=new Set(), reviewSel=new Set();
 const CATS=['Portofolio','Game','Tools','Blog','Toko','Edukasi','Komunitas','Lainnya'];
+function catList(){ return (appCfg.categories&&appCfg.categories.length)?appCfg.categories:CATS; }
+const BADGES={
+  contributor:{label:'Kontributor',color:'#34d399',icon:'star'},
+  partner:{label:'Partner',color:'#f5b342',icon:'handshake'},
+  moderator:{label:'Moderator Komunitas',color:'#4f8cff',icon:'shield'},
+  verified:{label:'Centang Biru (Terverifikasi)',color:'#1d9bf0',icon:'check'},
+  beta:{label:'Beta Tester',color:'#22d3ee',icon:'sparkle'}
+};
+function badgeChip(key){ const b=BADGES[key]; if(!b) return ''; return `<span class="bdg" style="background:${b.color}22;color:${b.color}">${ic(b.icon,11)}${b.label}</span>`; }
+function nameWithBadges(u,size,nameOnly){
+  const badges=(u&&u.badges)||[], roleB=u&&u.role==='owner'?`<span class="bdg" style="background:#facc1522;color:#facc15">${ic('crown',11)}Owner</span>`:u&&u.role==='admin'?`<span class="bdg" style="background:#79a8ff22;color:#79a8ff">${ic('shield',11)}Admin</span>`:'';
+  const chips=roleB+badges.map(badgeChip).join('');
+  return nameOnly?`<span class="nameRow">${esc(u&&u.displayName)}${chips}</span>`:`<span class="nameRow">${avatar(u,size)}<b>${esc(u&&u.displayName)}</b>${chips}</span>`;
+}
 
 /* ============ PWA ============ */
 function makeIcon(size){
   const c=document.createElement('canvas'); c.width=c.height=size; const x=c.getContext('2d');
-  x.fillStyle='#0a0e1a'; x.fillRect(0,0,size,size);
+  x.fillStyle='#080c17'; x.fillRect(0,0,size,size);
   const g=x.createLinearGradient(0,0,size,size); g.addColorStop(0,'#4f8cff'); g.addColorStop(1,'#8b5cf6');
   const k=size/40*.62, o=size*.19; x.strokeStyle=g; x.lineWidth=5.5*k*1.25; x.lineCap='round'; x.lineJoin='round';
   x.beginPath(); [[4,9],[13,31],[20,15],[27,31],[36,9]].forEach(([px,py],i)=>{ const X=o+px*k, Y=o+py*k+size*.06; i?x.lineTo(X,Y):x.moveTo(X,Y); }); x.stroke();
@@ -573,11 +635,7 @@ function makeIcon(size){
       icons:[{src:i192,sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:i512,sizes:'512x512',type:'image/png',purpose:'any maskable'}]};
     $('manifestLink').href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/manifest+json'}));
   }catch(e){}
-  if('serviceWorker' in navigator && /^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
-let deferredInstall=null;
-window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); deferredInstall=e; $('installBtn').classList.remove('hide'); });
-window.addEventListener('appinstalled', ()=>$('installBtn').classList.add('hide'));
 window.addEventListener('offline', ()=>toast('Kamu sedang offline','err'));
 window.addEventListener('online', ()=>toast('Kembali online','ok'));
 
@@ -588,8 +646,6 @@ $('burger').innerHTML=ic('menu',20); $('usrIc').innerHTML=ic('search',17); $('be
 $('addBtn').innerHTML=ic('plus',17)+'<span class="btnLbl">Bagikan</span>';
 $('closeShare').innerHTML=ic('x',18); $('iconPick').innerHTML=ic('upload',14)+' Unggah'; $('imgPick').innerHTML=ic('upload',14)+' Unggah';
 $('logoutBtn').innerHTML=ic('logout',17);
-$('installBtn').innerHTML=ic('download',16)+' Pasang aplikasi';
-$('installBtn').onclick=async()=>{ if(!deferredInstall) return; deferredInstall.prompt(); await deferredInstall.userChoice; deferredInstall=null; $('installBtn').classList.add('hide'); };
 
 /* ============ Auth ============ */
 function setMode(reg){
@@ -636,12 +692,12 @@ $('logoutBtn').onclick=()=>auth.signOut();
 
 /* ============ Sidebar & navigasi ============ */
 const NAV=[
-  {g:'Menu',items:[['feed','Jelajah','explore'],['saved','Tersimpan','bookmark'],['mine','Punyaku','mine'],['ann','Pengumuman','mega'],['profile','Profil Saya','user']]},
+  {g:'Menu',items:[['feed','Jelajah','explore'],['saved','Tersimpan','bookmark'],['mine','Punyaku','mine'],['leaderboard','Papan Peringkat','trophy'],['team','Tim & Kontributor','team'],['ann','Pengumuman','mega'],['profile','Profil Saya','user']]},
   {g:'Komunikasi',items:[['chat','Chat Developer','chat'],['feedback','Masukan','feedback']]},
   {g:'Moderasi',mod:1,items:[['dash','Dasbor','dash'],['review','Tinjau','review'],['reports','Laporan','flag'],['admin','Kelola Website','shield']]},
-  {g:'Owner',owner:1,items:[['users','Kelola Pengguna','users']]}
+  {g:'Owner',owner:1,items:[['users','Kelola Pengguna','users'],['log','Log Aktivitas','activity']]}
 ];
-const TITLES={feed:'Jelajah',saved:'Tersimpan',mine:'Punyaku',ann:'Pengumuman',profile:'Profil Saya',chat:'Chat Developer',feedback:'Masukan',dash:'Dasbor',review:'Tinjau Website',reports:'Laporan',admin:'Kelola Website',users:'Kelola Pengguna'};
+const TITLES={feed:'Jelajah',saved:'Tersimpan',mine:'Punyaku',leaderboard:'Papan Peringkat',team:'Tim & Kontributor',ann:'Pengumuman',profile:'Profil Saya',chat:'Chat Developer',feedback:'Masukan',dash:'Dasbor',review:'Tinjau Website',reports:'Laporan',admin:'Kelola Website',users:'Kelola Pengguna',log:'Log Aktivitas'};
 const VIEWS=Object.keys(TITLES);
 function buildSidebar(){
   $('navWrap').innerHTML=NAV.filter(g=>(!g.mod||isMod())&&(!g.owner||profile.role==='owner')).map(g=>
@@ -657,13 +713,14 @@ function openDrawer(){ $('side').classList.add('open'); $('scrim').classList.rem
 function closeDrawer(){ $('side').classList.remove('open'); $('scrim').classList.add('hide'); }
 $('burger').onclick=openDrawer; $('scrim').onclick=closeDrawer;
 function showView(t){
-  currentView=t; VIEWS.forEach(v=>$('view-'+v).classList.toggle('hide',v!==t));
+  currentView=t; VIEWS.forEach(v=>{ const el=$('view-'+v); if(el) el.classList.toggle('hide',v!==t); });
   document.querySelectorAll('.navItem').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
   $('pageTitle').textContent = (t==='chat'&&profile&&profile.role==='owner') ? 'Pesan Masuk' : TITLES[t];
   $('annWrap').classList.toggle('hide',t==='ann'); closeDrawer(); window.scrollTo(0,0);
   if(t==='users') loadUsers(); if(t==='chat') renderChatView(); if(t==='feedback') loadFeedback();
   if(t==='profile') renderProfilePane($('ownProfilePane'),currentUser.uid,'sites',true);
   if(t==='saved') renderSaved(); if(t==='ann') renderAnn(); if(t==='dash') renderDash(); if(t==='reports') renderReports();
+  if(t==='leaderboard') renderLeaderboard(); if(t==='team') renderTeam(); if(t==='log') renderAuditLog();
 }
 $('addBtn').onclick=()=>openShare();
 
@@ -693,46 +750,66 @@ function listenAll(){
   if(!mineUnsub) mineUnsub=db.collection('sites').where('ownerUid','==',currentUser.uid).onSnapshot(qs=>{ mineSites=ingest(qs).sort((a,b)=>tsMs(b)-tsMs(a)); renderAll(); });
   if(isMod() && !pendUnsub) pendUnsub=db.collection('sites').where('status','==','pending').onSnapshot(qs=>{ pendingSites=ingest(qs).sort((a,b)=>tsMs(b)-tsMs(a)); renderAll(); });
 }
-function renderAll(){ renderFeed(); renderMine(); renderAdmin(); renderReview(); refreshDetailLike(); }
+let __renderQueued=false;
+function renderAll(){
+  if(__renderQueued) return; __renderQueued=true;
+  Promise.resolve().then(()=>{ __renderQueued=false; renderFeed(); renderMine(); renderAdmin(); renderReview(); refreshDetailLike(); });
+}
 $('searchInput').oninput=e=>{ searchQuery=e.target.value.trim().toLowerCase(); renderFeed(); };
 $('sortSelect').onchange=e=>{ sortMode=e.target.value; renderFeed(); };
 $('moreBtn').onclick=()=>{ feedLimit+=36; listenAll(); };
 const emptyHtml=(icon,msg,cta)=>`<div class="empty">${ic(icon,42)}<div>${msg}</div>${cta?`<button class="btn primary sm" style="margin-top:12px" onclick="openShare()">${cta}</button>`:''}</div>`;
-function renderCats(){ $('catRow').innerHTML=['all',...CATS].map(c=>`<button class="cat ${catFilter===c?'on':''}" onclick="setCat('${c}')">${c==='all'?'Semua':c}</button>`).join(''); }
+function renderCats(){ $('catRow').innerHTML=['all',...catList()].map(c=>`<button class="cat ${catFilter===c?'on':''}" onclick="setCat('${c}')">${c==='all'?'Semua':c}</button>`).join(''); }
 window.setCat=c=>{ catFilter=c; renderFeed(); };
 function renderFeed(){
   renderCats();
-  const base=feedSites.filter(s=>!s.banned&&isApproved(s));
+  const base=feedSites.filter(s=>!s.banned&&isApproved(s)&&!blockedIds.has(s.ownerUid));
   $('feedHello').textContent='Halo, '+((profile.displayName||'').split(' ')[0]||'teman');
   $('feedStat').textContent=base.length+' website dibagikan oleh komunitas';
   if(!feedLoaded){ $('feedGrid').innerHTML='<div class="skel"></div>'.repeat(6); $('featBox').classList.add('hide'); return; }
   const feat=base.filter(s=>s.featured).slice(0,3), showFeat=feat.length&&!searchQuery&&catFilter==='all';
-  $('featBox').classList.toggle('hide',!showFeat); if(showFeat) $('featGrid').innerHTML=feat.map(cardHtml).join('');
+  $('featBox').classList.toggle('hide',!showFeat); if(showFeat) $('featGrid').innerHTML=feat.map(s=>cardHtml(s)).join('');
   let a=base; if(catFilter!=='all') a=a.filter(s=>(s.category||'Lainnya')===catFilter);
   if(searchQuery) a=a.filter(s=>((s.title||'')+' '+(s.description||'')+' '+hostOf(s.url)).toLowerCase().includes(searchQuery));
   if(sortMode==='popular') a=a.slice().sort((x,y)=>(y.likes||[]).length-(x.likes||[]).length);
   else if(sortMode==='views') a=a.slice().sort((x,y)=>(y.views||0)-(x.views||0));
   else if(sortMode==='az') a=a.slice().sort((x,y)=>(x.title||'').localeCompare(y.title||''));
-  $('feedGrid').innerHTML=a.length?a.map(cardHtml).join(''):emptyHtml('explore',(searchQuery||catFilter!=='all')?'Tidak ada website yang cocok.':'Belum ada website. Jadilah yang pertama!',(searchQuery||catFilter!=='all')?'':'Bagikan website');
+  $('feedGrid').innerHTML=a.length?a.map(s=>cardHtml(s)).join(''):emptyHtml('explore',(searchQuery||catFilter!=='all')?'Tidak ada website yang cocok.':'Belum ada website. Jadilah yang pertama!',(searchQuery||catFilter!=='all')?'':'Bagikan website');
   $('moreWrap').classList.toggle('hide',feedSites.length<feedLimit);
 }
-function renderMine(){ $('mineGrid').innerHTML=mineSites.length?mineSites.map(cardHtml).join(''):emptyHtml('mine','Kamu belum membagikan website apa pun.','Bagikan website pertamamu'); }
-function renderAdmin(){ if(!isMod()) return; $('adminGrid').innerHTML=feedSites.length?feedSites.map(cardHtml).join(''):emptyHtml('shield','Belum ada website.'); }
+function renderMine(){ $('mineGrid').innerHTML=mineSites.length?mineSites.map(s=>cardHtml(s)).join(''):emptyHtml('mine','Kamu belum membagikan website apa pun.','Bagikan website pertamamu'); }
+function renderAdmin(){ if(!isMod()) return; $('adminGrid').innerHTML=feedSites.length?feedSites.map(s=>cardHtml(s)).join(''):emptyHtml('shield','Belum ada website.'); }
+function bulkBarHtml(){
+  return reviewSel.size?`<div class="bulkBar" id="revBulkBar"><span>${reviewSel.size} dipilih</span><span style="flex:1"></span><button class="btn sm primary" onclick="bulkReview(true)">${ic('check',14)} Setujui semua</button><button class="btn sm danger" onclick="bulkReview(false)">${ic('ban',14)} Tolak semua</button><button class="btn sm ghost" onclick="reviewSel.clear();renderReview()">Batal</button></div>`:'';
+}
 function renderReview(){
   if(!isMod()) return; setBadge('review',pendingSites.length);
-  $('reviewGrid').innerHTML=pendingSites.length?pendingSites.map(s=>cardHtml(s,true)).join(''):emptyHtml('review','Tidak ada website yang menunggu tinjauan.');
+  reviewSel=new Set([...reviewSel].filter(id=>pendingSites.some(s=>s.id===id)));
+  $('reviewGrid').innerHTML=bulkBarHtml()+(pendingSites.length?`<div class="grid">${pendingSites.map(s=>cardHtml(s,true)).join('')}</div>`:emptyHtml('review','Tidak ada website yang menunggu tinjauan.'));
 }
+window.toggleReviewSel=(id,checked)=>{
+  checked?reviewSel.add(id):reviewSel.delete(id);
+  const old=document.getElementById('revBulkBar'), html=bulkBarHtml();
+  if(old) old.outerHTML=html; else if(html) $('reviewGrid').insertAdjacentHTML('afterbegin',html);
+};
+window.bulkReview=async(approve)=>{
+  const ids=[...reviewSel]; if(!ids.length) return;
+  try{ const b=db.batch(); ids.forEach(id=>b.update(db.collection('sites').doc(id),approve?{status:'approved'}:{status:'approved',banned:true})); await b.commit();
+    ids.forEach(id=>{ const s=cache[id]; if(s){ notify(s.ownerUid,{type:'moderation',text:approve?`Website "${s.title}" disetujui dan sekarang tampil di Jelajah.`:`Website "${s.title}" ditolak karena terdeteksi tidak aman.`,siteId:id}); logAction(approve?'approve':'reject',id,s.title,'(massal)'); } });
+    reviewSel.clear(); toast(approve?'Semua disetujui':'Semua ditolak & diblokir','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); }
+};
 function cardHtml(s, review){
   const likes=s.likes||[], liked=likes.includes(currentUser.uid), saved=savedIds.has(s.id), img=shotSrc(s), icon=iconSrc(s);
   const tag=s.banned?'<span class="chip bad">Diblokir</span>':s.status==='pending'?'<span class="chip warn">Menunggu tinjauan</span>':(s.featured?'<span class="chip ok"><span class="star">★</span> Pilihan</span>':'');
-  return `<article class="card">
-    <div class="shot" onclick="openDetail('${s.id}')"><div class="fb">${esc(initials(s.title))}</div>${img?`<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.remove()">`:''}<div class="tag">${tag}</div>${s.category?`<span class="chip cat2">${esc(s.category)}</span>`:''}</div>
+  return `<article class="card" style="position:relative">
+    ${review?`<input type="checkbox" class="revPick" onclick="event.stopPropagation()" ${reviewSel.has(s.id)?'checked':''} onchange="toggleReviewSel('${s.id}',this.checked)">`:''}
+    <div class="shot" onclick="openDetail('${s.id}')"><div class="fb">${esc(initials(s.title))}</div>${img?`<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="setTimeout(()=>{ if(this.isConnected) this.remove(); },0)">`:''}<div class="tag">${tag}</div>${s.category?`<span class="chip cat2">${esc(s.category)}</span>`:''}</div>
     <div class="cbody">
-      <div class="ctitle">${icon?`<img class="sicon" loading="lazy" referrerpolicy="no-referrer" src="${esc(icon)}" alt="" onerror="this.outerHTML='<div class=\\'sicon fbk\\'>${esc(initials(s.title))}</div>'">`:`<div class="sicon fbk">${esc(initials(s.title))}</div>`}
+      <div class="ctitle">${icon?`<div class="sicon" style="background-image:url('${esc(icon)}')"></div>`:`<div class="sicon fbk">${esc(initials(s.title))}</div>`}
         <div style="min-width:0"><h3>${esc(s.title)}</h3><span class="host">${esc(hostOf(s.url))}</span></div></div>
       <p>${esc(s.description||'Tidak ada deskripsi.')}</p>
       ${review?`<div class="reason">${(s.flagReasons||[]).map(esc).join('<br>')||'Ditandai sistem'}</div>`:''}
-      <div class="cmeta"><span class="by" onclick="openProfile('${s.ownerUid}')">${avatar({displayName:s.ownerName},20)}${esc(s.ownerName||'?')}</span><span class="stat">${ic('eye',14)}${s.views||0}</span></div>
+      <div class="cmeta"><span class="by" onclick="openProfile('${s.ownerUid}')">${nameWithBadges({displayName:s.ownerName,badges:s.ownerBadges,role:s.ownerRole},20)}</span><span class="stat">${ic('eye',14)}${s.views||0}</span></div>
     </div>
     <div class="cact">
       ${review?`<button class="btn sm primary" onclick="approveSite('${s.id}')">${ic('check',14)} Setujui</button><button class="btn sm danger" onclick="rejectSite('${s.id}')">${ic('ban',14)} Tolak</button><span class="grow"></span><button class="btn sm ghost" onclick="openDetail('${s.id}')">Detail</button>`:
@@ -749,10 +826,10 @@ window.toggleLike=async id=>{ const s=cache[id]; if(!s) return; const liked=(s.l
 window.shareSite=async id=>{ const s=cache[id]; if(!s) return;
   if(navigator.share){ try{ await navigator.share({title:s.title,text:s.description||'',url:s.url}); }catch(e){} }
   else{ try{ await navigator.clipboard.writeText(s.url); toast('Link disalin ke clipboard','ok'); }catch(e){ prompt('Salin link ini:',s.url); } } };
-window.toggleBan=async(id,cur)=>{ if(!isMod()) return; try{ await db.collection('sites').doc(id).update({banned:!cur}); const s=cache[id]; if(s) notify(s.ownerUid,{type:'moderation',text:cur?`Blokir website "${s.title}" telah dibuka.`:`Website "${s.title}" diblokir oleh moderator.`,siteId:id}); toast(cur?'Blokir dibuka':'Website diblokir','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+window.toggleBan=async(id,cur)=>{ if(!isMod()) return; try{ await db.collection('sites').doc(id).update({banned:!cur}); const s=cache[id]; if(s){ notify(s.ownerUid,{type:'moderation',text:cur?`Blokir website "${s.title}" telah dibuka.`:`Website "${s.title}" diblokir oleh moderator.`,siteId:id}); logAction(cur?'unban':'ban',id,s.title); } toast(cur?'Blokir dibuka':'Website diblokir','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
 window.deleteSite=async id=>{ if(profile.role!=='owner'||!confirm('Hapus website ini secara permanen?')) return; try{ await db.collection('sites').doc(id).delete(); toast('Website dihapus','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
-window.approveSite=async id=>{ if(!isMod()) return; try{ await db.collection('sites').doc(id).update({status:'approved'}); const s=cache[id]; if(s) notify(s.ownerUid,{type:'moderation',text:`Website "${s.title}" disetujui dan sekarang tampil di Jelajah.`,siteId:id}); toast('Website disetujui','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
-window.rejectSite=async id=>{ if(!isMod()) return; try{ await db.collection('sites').doc(id).update({status:'approved',banned:true}); const s=cache[id]; if(s) notify(s.ownerUid,{type:'moderation',text:`Website "${s.title}" ditolak karena terdeteksi tidak aman.`,siteId:id}); toast('Website ditolak & diblokir','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+window.approveSite=async id=>{ if(!isMod()) return; try{ await db.collection('sites').doc(id).update({status:'approved'}); const s=cache[id]; if(s){ notify(s.ownerUid,{type:'moderation',text:`Website "${s.title}" disetujui dan sekarang tampil di Jelajah.`,siteId:id}); logAction('approve',id,s.title); } toast('Website disetujui','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+window.rejectSite=async id=>{ if(!isMod()) return; try{ await db.collection('sites').doc(id).update({status:'approved',banned:true}); const s=cache[id]; if(s){ notify(s.ownerUid,{type:'moderation',text:`Website "${s.title}" ditolak karena terdeteksi tidak aman.`,siteId:id}); logAction('reject',id,s.title); } toast('Website ditolak & diblokir','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
 
 /* ============ Form bagikan / edit ============ */
 function updatePreviews(){
@@ -760,8 +837,8 @@ function updatePreviews(){
   const fake={url:/^https?:\/\//i.test(url)?url:(url?'https://'+url:''),status:''};
   const ip=upIcon||safeImg(iu), gp=upImg||safeImg(gu);
   const iShow=ip||(fake.url?iconSrc(fake):''), gShow=gp||(fake.url?shotSrc(fake):'');
-  $('iconPrev').innerHTML=iShow?`<img src="${esc(iShow)}" referrerpolicy="no-referrer" alt="" onerror="this.remove()">`:'Ikon';
-  $('imgPrev').innerHTML=gShow?`<img src="${esc(gShow)}" referrerpolicy="no-referrer" alt="" onerror="this.remove()">`:'Gambar';
+  $('iconPrev').innerHTML=iShow?`<img src="${esc(iShow)}" referrerpolicy="no-referrer" alt="" onerror="setTimeout(()=>{ if(this.isConnected) this.remove(); },0)">`:'Ikon';
+  $('imgPrev').innerHTML=gShow?`<img src="${esc(gShow)}" referrerpolicy="no-referrer" alt="" onerror="setTimeout(()=>{ if(this.isConnected) this.remove(); },0)">`:'Gambar';
   $('iconNote').textContent=ip?'Ikon kustom dipakai.':'Otomatis dari link websitemu.';
   $('imgNote').textContent=gp?'Gambar kustom dipakai.':'Otomatis dari tangkapan layar link.';
 }
@@ -775,7 +852,7 @@ window.openShare=id=>{
   editingId=id||null; const s=id?cache[id]:null; upIcon=upImg='';
   $('shareTitle').textContent=s?'Edit website':'Bagikan website'; $('shareSubmit').textContent=s?'Simpan perubahan':'Bagikan';
   $('fTitle').value=s?s.title||'':''; $('fUrl').value=s?s.url||'':''; $('fDesc').value=s?s.description||'':''; $('fSrc').value=s?s.sourceCode||'':'';
-  $('fCat').innerHTML=CATS.map(c=>`<option>${c}</option>`).join(''); $('fCat').value=(s&&s.category)||'Lainnya';
+  $('fCat').innerHTML=catList().map(c=>`<option>${c}</option>`).join(''); $('fCat').value=(s&&s.category&&catList().includes(s.category))?s.category:catList()[catList().length-1];
   $('fIcon').value=''; $('fImage').value='';
   if(s){ if((s.iconUrl||'').startsWith('data:')) upIcon=s.iconUrl; else $('fIcon').value=s.iconUrl||''; if((s.imageUrl||'').startsWith('data:')) upImg=s.imageUrl; else $('fImage').value=s.imageUrl||''; }
   $('shareErr').textContent=''; updatePreviews(); $('shareOv').classList.remove('hide');
@@ -791,7 +868,7 @@ $('shareSubmit').onclick=async()=>{
   if(old){ if(old.url!==url && check.suspicious){ $('shareErr').textContent='Link baru terdeteksi mencurigakan ('+check.reasons[0]+'). Hubungi developer lewat Chat jika ini keliru.'; return; } }
   else { const l=cooldownLeft('share',60); if(l>0){ $('shareErr').textContent=`Tunggu ${l} detik lagi sebelum membagikan website baru (anti-spam).`; return; } }
   const ext=v=>{ v=(v||'').trim(); return safeImg(v)?v:''; };
-  const data={title,url,iconUrl:upIcon||ext($('fIcon').value),imageUrl:upImg||ext($('fImage').value),description:$('fDesc').value.trim(),sourceCode:$('fSrc').value.trim(),category:$('fCat').value,ownerUid:currentUser.uid,ownerName:profile.displayName};
+  const data={title,url,iconUrl:upIcon||ext($('fIcon').value),imageUrl:upImg||ext($('fImage').value),description:$('fDesc').value.trim(),sourceCode:$('fSrc').value.trim(),category:$('fCat').value,ownerUid:currentUser.uid,ownerName:profile.displayName,ownerRole:profile.role,ownerBadges:profile.badges||[]};
   $('shareSubmit').disabled=true;
   try{
     if(old){ delete data.ownerUid; delete data.ownerName; await db.collection('sites').doc(editingId).update(data); toast('Perubahan disimpan','ok'); }
@@ -815,8 +892,8 @@ window.openDetail=id=>{
   const img=shotSrc(s), icon=iconSrc(s), src=(s.sourceCode||'').trim(), srcIsUrl=/^https?:\/\/\S+$/.test(src), likes=s.likes||[];
   $('detailBody').innerHTML=`
     <div class="sheetTop"><h3>Detail website</h3><button class="btn icon ghost" onclick="closeDetail()">${ic('x',18)}</button></div>
-    ${img?`<img class="dHero" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.remove()">`:''}
-    <div class="ctitle" style="margin:14px 0 8px">${icon?`<img class="sicon" referrerpolicy="no-referrer" src="${esc(icon)}" alt="" onerror="this.remove()">`:''}
+    ${img?`<img class="dHero" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="setTimeout(()=>{ if(this.isConnected) this.remove(); },0)">`:''}
+    <div class="ctitle" style="margin:14px 0 8px">${icon?`<div class="sicon" style="background-image:url('${esc(icon)}')"></div>`:''}
       <div style="min-width:0"><h3 style="font-size:19px">${esc(s.title)}</h3><a class="host" style="color:var(--blue);font-size:12.5px" href="${esc(safeLink(s.url))}" target="_blank" rel="noopener noreferrer">${esc(s.url)}</a></div></div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
       ${s.banned?'<span class="chip bad">Diblokir</span>':''}${s.status==='pending'?'<span class="chip warn">Menunggu tinjauan</span>':''}
@@ -842,7 +919,7 @@ window.openDetail=id=>{
   cmtUnsub=db.collection('sites').doc(id).collection('comments').orderBy('createdAt','desc').limit(60).onSnapshot(qs=>{
     const el=$('cList'); if(!el) return;
     el.className=''; el.innerHTML=qs.docs.length?qs.docs.map(d=>{ const c=d.data(); const can=c.uid===currentUser.uid||profile.role==='owner';
-      return `<div class="cmt">${avatar({displayName:c.name},30)}<div style="flex:1;min-width:0"><b>${esc(c.name)}</b><p>${esc(c.text)}</p></div>${can?`<button class="ib" onclick="delComment('${id}','${d.id}')">${ic('trash',13)}</button>`:''}</div>`; }).join(''):'<div class="hint" style="padding:10px 0">Belum ada komentar. Jadilah yang pertama.</div>';
+      return `<div class="cmt" id="cmt-${d.id}">${avatar({displayName:c.name},30)}<div style="flex:1;min-width:0">${nameWithBadges({displayName:c.name,badges:c.badges,role:c.role},0,true)}<p>${esc(c.text)}${c.edited?' <small class="hint">(diedit)</small>':''}</p></div>${c.uid===currentUser.uid?`<button class="ib" onclick="editComment('${id}','${d.id}',this)">${ic('edit',13)}</button>`:''}${can?`<button class="ib" onclick="delComment('${id}','${d.id}')">${ic('trash',13)}</button>`:''}</div>`; }).join(''):'<div class="hint" style="padding:10px 0">Belum ada komentar. Jadilah yang pertama.</div>';
   });
 };
 window.closeDetail=()=>{ $('detailOv').classList.add('hide'); openDetailId=null; cmtUnsub&&cmtUnsub(); cmtUnsub=null; if(location.hash) history.replaceState(null,'',location.pathname+location.search); };
@@ -851,9 +928,17 @@ window.postComment=async id=>{
   const v=$('cInput').value.trim(); if(!v) return;
   const l=cooldownLeft('comment',8); if(l>0){ toast(`Tunggu ${l} detik lagi sebelum berkomentar`,'err'); return; }
   $('cInput').value=''; markCd('comment');
-  try{ await db.collection('sites').doc(id).collection('comments').add({uid:currentUser.uid,name:profile.displayName,text:v.slice(0,500),createdAt:FV.serverTimestamp()}); const s=cache[id]; if(s) notify(s.ownerUid,{type:'comment',text:`${profile.displayName} berkomentar di "${s.title}": ${v.slice(0,80)}`,siteId:id}); }catch(e){ toast('Gagal: '+e.message,'err'); }
+  try{ await db.collection('sites').doc(id).collection('comments').add({uid:currentUser.uid,name:profile.displayName,role:profile.role,badges:profile.badges||[],text:v.slice(0,500),createdAt:FV.serverTimestamp()}); const s=cache[id]; if(s) notify(s.ownerUid,{type:'comment',text:`${profile.displayName} berkomentar di "${s.title}": ${v.slice(0,80)}`,siteId:id}); }catch(e){ toast('Gagal: '+e.message,'err'); }
 };
 window.delComment=async(sid,cid)=>{ try{ await db.collection('sites').doc(sid).collection('comments').doc(cid).delete(); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+window.editComment=(sid,cid,btn)=>{
+  const row=document.getElementById('cmt-'+cid); const p=row.querySelector('p'); const cur=p.firstChild.textContent;
+  row.querySelector('div[style]').innerHTML=`<div style="display:flex;gap:6px;margin-top:4px"><input class="inp" id="ce-${cid}" value="${esc(cur)}" maxlength="500" style="flex:1"><button class="btn sm primary" onclick="saveComment('${sid}','${cid}')">Simpan</button></div>`;
+};
+window.saveComment=async(sid,cid)=>{
+  const v=$('ce-'+cid).value.trim(); if(!v) return;
+  try{ await db.collection('sites').doc(sid).collection('comments').doc(cid).update({text:v.slice(0,500),edited:true}); }catch(e){ toast('Gagal: '+e.message,'err'); }
+};
 
 /* ============ Kelola pengguna ============ */
 async function loadUsers(){
@@ -863,12 +948,32 @@ async function loadUsers(){
 }
 function drawUsers(){
   const q=userQ.toLowerCase(), list=allUsers.filter(u=>!q||((u.displayName||'')+' '+(u.email||'')).toLowerCase().includes(q));
-  $('userList').innerHTML=list.map(u=>`<div class="row"><div class="who">${avatar(u,40)}<div style="min-width:0"><b>${esc(u.displayName||u.email)}</b> ${u.banned?'<span class="chip bad">Ditangguhkan</span>':''}<small>${esc(u.email||'')}</small></div></div>
+  $('userList').innerHTML=`<div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn sm ghost" onclick="exportUsersCSV()">${ic('csv',14)} Ekspor CSV</button></div>`+
+    list.map(u=>`<div class="row"><div class="who">${avatar(u,40)}<div style="min-width:0"><div class="nameRow"><b>${esc(u.displayName||u.email)}</b>${u.banned?'<span class="chip bad">Ditangguhkan</span>':''}${(u.badges||[]).map(badgeChip).join('')}</div><small>${esc(u.email||'')}</small></div></div>
     <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
       <select class="inp" style="width:auto;padding:7px 9px;font-size:12.5px" ${u.uid===currentUser.uid?'disabled':''} onchange="changeRole('${u.uid}',this.value)">${['biasa','admin','owner'].map(r=>`<option value="${r}" ${u.role===r?'selected':''}>${roleLabel(r)}</option>`).join('')}</select>
-      ${u.uid===currentUser.uid?'':`<button class="ib" title="Kirim peringatan" onclick="openWarn('${u.uid}','')">${ic('alert',15)}</button><button class="ib" title="${u.banned?'Pulihkan akun':'Tangguhkan akun'}" onclick="toggleSuspend('${u.uid}',${!!u.banned})">${ic(u.banned?'check':'ban',15)}</button>`}</div></div>`).join('')||'<div class="hint" style="padding:16px 0">Tidak ada pengguna.</div>';
+      ${u.uid===currentUser.uid?'':`<button class="ib" title="Kirim peringatan" onclick="openWarn('${u.uid}','')">${ic('alert',15)}</button><button class="ib" title="${u.banned?'Pulihkan akun':'Tangguhkan akun'}" onclick="toggleSuspend('${u.uid}',${!!u.banned})">${ic(u.banned?'check':'ban',15)}</button>`}
+      <button class="ib" title="Kelola lencana" onclick="openBadges('${u.uid}')">${ic('star',15)}</button></div></div>`).join('')||'<div class="hint" style="padding:16px 0">Tidak ada pengguna.</div>';
 }
-window.changeRole=async(uid,role)=>{ if(profile.role!=='owner') return; try{ await db.collection('users').doc(uid).update({role}); toast('Role diperbarui','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); loadUsers(); } };
+window.exportUsersCSV=()=>downloadCSV('webfolio-pengguna.csv',['Nama','Email','Role','Lencana','Ditangguhkan'],allUsers.map(u=>[u.displayName||'',u.email||'',roleLabel(u.role),(u.badges||[]).map(b=>BADGES[b]?BADGES[b].label:b).join('; '),u.banned?'Ya':'Tidak']));
+window.exportSitesCSV=()=>downloadCSV('webfolio-website.csv',['Judul','URL','Pemilik','Kategori','Status','Diblokir','Like','Dilihat'],feedSites.map(s=>[s.title||'',s.url||'',s.ownerName||'',s.category||'',s.status||'approved',s.banned?'Ya':'Tidak',(s.likes||[]).length,s.views||0]));
+function downloadCSV(filename,headers,rows){
+  const esc2=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+  const csv='\uFEFF'+[headers.map(esc2).join(','),...rows.map(r=>r.map(esc2).join(','))].join('\r\n');
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'})); a.download=filename; a.click(); URL.revokeObjectURL(a.href);
+}
+window.openBadges=async uid=>{
+  if(profile.role!=='owner') return; const u=allUsers.find(x=>x.uid===uid); if(!u) return; const cur=new Set(u.badges||[]);
+  openSheet(sheetHead('Kelola lencana — '+esc(u.displayName))+`<p class="hint" style="margin:0 0 10px">Lencana adalah label kehormatan (tidak mengubah izin akses). Izin akses tetap diatur lewat Role.</p>
+   <div class="badgeChecks">${Object.entries(BADGES).map(([k,b])=>`<label style="color:${b.color}"><input type="checkbox" value="${k}" ${cur.has(k)?'checked':''}><span>${ic(b.icon,14)}${b.label}</span></label>`).join('')}</div>
+   <button class="btn primary" style="width:100%" id="bgSave">Simpan lencana</button>`);
+  $('bgSave').onclick=async()=>{
+    const sel=[...document.querySelectorAll('.badgeChecks input:checked')].map(i=>i.value);
+    try{ await db.collection('users').doc(uid).update({badges:sel}); await syncTeam(uid,{...u,badges:sel}); logAction('badge',uid,u.displayName,'Lencana diperbarui: '+(sel.map(k=>BADGES[k].label).join(', ')||'tidak ada')); u.badges=sel; closeSheet(); toast('Lencana disimpan','ok'); drawUsers(); }
+    catch(e){ toast('Gagal: '+e.message,'err'); }
+  };
+};
+window.changeRole=async(uid,role)=>{ if(profile.role!=='owner') return; const u=allUsers.find(x=>x.uid===uid); try{ await db.collection('users').doc(uid).update({role}); if(u){ logAction('role',uid,u.displayName,`Role diubah dari ${roleLabel(u.role)} ke ${roleLabel(role)}`); await syncTeam(uid,{...u,role}); u.role=role; } toast('Role diperbarui','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); loadUsers(); } };
 
 /* ============ Masukan ============ */
 $('fbSubmit').onclick=async()=>{
@@ -946,7 +1051,7 @@ async function renderProfilePane(box,uid,tab,self){
   const isMe=uid===currentUser.uid; let body='';
   if(tab==='sites'){
     let list; if(isMe) list=mineSites; else { const q=await db.collection('sites').where('ownerUid','==',uid).get(); list=ingest(q).sort((a,b)=>tsMs(b)-tsMs(a)); if(!isMod()) list=list.filter(s=>!s.banned&&isApproved(s)); }
-    body=`<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">${list.length?list.map(cardHtml).join(''):emptyHtml('mine','Belum ada website dibagikan.')}</div>`;
+    body=`<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">${list.length?list.map(s=>cardHtml(s)).join(''):emptyHtml('mine','Belum ada website dibagikan.')}</div>`;
   } else if(tab==='followers'||tab==='following'){
     const f=tab==='followers'?'target':'follower', o=tab==='followers'?'follower':'target';
     const qs=await db.collection('follows').where(f,'==',uid).limit(100).get();
@@ -966,7 +1071,7 @@ async function renderProfilePane(box,uid,tab,self){
     <div class="cover"></div><div class="prof">${avatar(u,84)}<div style="padding-bottom:4px"><h3>${esc(u.displayName)}</h3><span class="chip ${u.role==='owner'?'owner':u.role==='admin'?'admin':''}" style="margin-top:4px">${roleLabel(u.role)}</span></div></div>
     ${u.bio?`<p style="color:#b9c0d8;margin:8px 0">${esc(u.bio)}</p>`:''}
     <div class="stats"><button onclick="setProfTab('${uid}','followers',${self})"><b>${u.followersCount||0}</b>Pengikut</button><button onclick="setProfTab('${uid}','following',${self})"><b>${u.followingCount||0}</b>Mengikuti</button></div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">${isMe?'':`<button class="btn ${following?'':'primary'} sm" onclick="toggleFollow('${uid}')">${following?'Berhenti mengikuti':'Ikuti'}</button>`}${(!isMe&&isMod())?`<button class="btn sm" onclick="openWarn('${uid}','')">${ic('alert',14)} Peringatkan</button>`:''}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">${isMe?'':`<button class="btn ${following?'':'primary'} sm" onclick="toggleFollow('${uid}')">${following?'Berhenti mengikuti':'Ikuti'}</button>`}<button class="btn ghost sm" onclick="copyProfileLink('${uid}')">${ic('link',14)} Salin link</button>${(!isMe&&isMod())?`<button class="btn sm" onclick="openWarn('${uid}','')">${ic('alert',14)} Peringatkan</button>`:''}${!isMe?`<button class="btn ${blockedIds.has(uid)?'danger':'ghost'} sm" onclick="toggleBlockUser('${uid}')">${ic('block',14)} ${blockedIds.has(uid)?'Batal blokir':'Blokir pengguna'}</button>`:''}</div>
     <div class="sub">${tabs.map(([k,l])=>`<button class="${tab===k?'on':''}" onclick="setProfTab('${uid}','${k}',${self})">${l}</button>`).join('')}</div><div>${body}</div>`;
   if(tab==='edit'){
     let newAv=null;
@@ -1018,7 +1123,9 @@ function listenExtras(){
   extraUnsubs.push(db.collection('announcements').orderBy('createdAt','desc').limit(30).onSnapshot(qs=>{ anns=qs.docs.map(d=>({id:d.id,...d.data()})); renderAnnBar(); updateAnnBadge(); if(currentView==='ann') renderAnn(); checkCritical(); },ok));
   extraUnsubs.push(db.collection('users').doc(uid).collection('notifs').orderBy('createdAt','desc').limit(50).onSnapshot(qs=>{ notifs=qs.docs.map(d=>({id:d.id,...d.data()})); updateBell(); renderAnnBar(); if(!$('notifOv').classList.contains('hide')) renderNotifs(); },ok));
   extraUnsubs.push(db.collection('users').doc(uid).collection('saved').onSnapshot(qs=>{ savedIds=new Set(qs.docs.map(d=>d.id)); renderAll(); if(currentView==='saved') renderSaved(); },ok));
+  extraUnsubs.push(db.collection('users').doc(uid).collection('blocks').onSnapshot(qs=>{ blockedIds=new Set(qs.docs.map(d=>d.id)); renderAll(); },ok));
   if(isMod()) extraUnsubs.push(db.collection('reports').where('status','==','open').onSnapshot(qs=>{ reportsOpen=qs.docs.map(d=>({id:d.id,...d.data()})); setBadge('reports',groupReports().length); if(currentView==='reports') renderReports(); if(currentView==='dash') renderDash(); },ok));
+  if(profile.role==='owner') extraUnsubs.push(db.collection('auditLog').orderBy('createdAt','desc').limit(150).onSnapshot(qs=>{ auditLog=qs.docs.map(d=>({id:d.id,...d.data()})); if(currentView==='log') renderAuditLog(); },ok));
 }
 
 /* --- notifikasi --- */
@@ -1070,7 +1177,7 @@ window.openAnnForm=()=>{
     const title=$('aTitle').value.trim(), text=$('aText').value.trim(); if(!title||!text){ $('aErr').textContent='Judul dan isi wajib diisi.'; return; }
     const d={title,text,type:document.querySelector('input[name=aType]:checked').value,active:true,byUid:currentUser.uid,byName:profile.displayName,createdAt:FV.serverTimestamp()}, days=+$('aExp').value;
     if(days) d.expiresAt=firebase.firestore.Timestamp.fromMillis(Date.now()+days*864e5);
-    try{ await db.collection('announcements').add(d); closeSheet(); toast('Pengumuman dipublikasikan','ok'); }catch(e){ $('aErr').textContent='Gagal: '+e.message; }
+    try{ await db.collection('announcements').add(d); logAction('announcement',null,title); closeSheet(); toast('Pengumuman dipublikasikan','ok'); }catch(e){ $('aErr').textContent='Gagal: '+e.message; }
   };
 };
 window.toggleAnn=async(id,cur)=>{ try{ await db.collection('announcements').doc(id).update({active:!cur}); }catch(e){ toast('Gagal: '+e.message,'err'); } };
@@ -1097,7 +1204,7 @@ async function renderSaved(){
   const need=ids.filter(i=>!cache[i]); if(need.length) box.innerHTML='<div class="skel"></div>'.repeat(Math.min(need.length,3));
   for(let i=0;i<need.length;i+=10){ try{ ingest(await db.collection('sites').where(firebase.firestore.FieldPath.documentId(),'in',need.slice(i,i+10)).get()); }catch(e){} }
   const list=ids.map(i=>cache[i]).filter(x=>x&&!x.banned&&isApproved(x));
-  box.innerHTML=list.length?list.map(cardHtml).join(''):emptyHtml('bookmark','Website tersimpan sudah tidak tersedia.');
+  box.innerHTML=list.length?list.map(s=>cardHtml(s)).join(''):emptyHtml('bookmark','Website tersimpan sudah tidak tersedia.');
 }
 window.viewSite=async id=>{
   if(!cache[id]){ try{ const d=await db.collection('sites').doc(id).get(); if(d.exists) cache[id]={id,...d.data()}; }catch(e){} }
@@ -1105,9 +1212,24 @@ window.viewSite=async id=>{
   if((s.banned||!isApproved(s))&&!isMod()&&s.ownerUid!==currentUser.uid){ toast('Website ini tidak tersedia','err'); return; }
   openDetail(id);
 };
-async function handleHash(){ const m=location.hash.match(/^#site=(\w+)/); if(m&&currentUser&&profile&&!profile.banned) viewSite(m[1]); }
+async function handleHash(){
+  if(!currentUser||!profile||profile.banned) return;
+  const ms=location.hash.match(/^#site=(\w+)/); if(ms){ viewSite(ms[1]); return; }
+  const mu=location.hash.match(/^#user=(\w+)/); if(mu) openProfile(mu[1]);
+}
 window.addEventListener('hashchange',handleHash);
-window.toggleFeature=async id=>{ if(!isMod()) return; const s=cache[id]; try{ await db.collection('sites').doc(id).update({featured:!s.featured}); toast(s.featured?'Dihapus dari Pilihan':'Dijadikan Pilihan','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+window.copyProfileLink=async uid=>{ const url=location.href.split('#')[0]+'#user='+uid; try{ await navigator.clipboard.writeText(url); toast('Link profil disalin','ok'); }catch(e){ prompt('Salin link:',url); } };
+window.toggleBlockUser=async targetUid=>{
+  if(targetUid===currentUser.uid) return;
+  const ref=db.collection('users').doc(currentUser.uid).collection('blocks').doc(targetUid);
+  try{
+    if(blockedIds.has(targetUid)){ await ref.delete(); toast('Blokir dibatalkan','ok'); }
+    else{ await ref.set({createdAt:FV.serverTimestamp()}); toast('Pengguna diblokir — websitenya disembunyikan dari Jelajah kamu','ok'); }
+  }catch(e){ toast('Gagal: '+e.message,'err'); }
+  const ovOpen=!$('profileOv').classList.contains('hide');
+  renderProfilePane(ovOpen?$('profileOvBody'):$('ownProfilePane'),targetUid,profTab[targetUid]||'sites',!ovOpen);
+};
+window.toggleFeature=async id=>{ if(!isMod()) return; const s=cache[id]; try{ await db.collection('sites').doc(id).update({featured:!s.featured}); logAction(s.featured?'unfeature':'feature',id,s.title); toast(s.featured?'Dihapus dari Pilihan':'Dijadikan Pilihan','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
 
 /* --- laporan --- */
 const REASONS=['Phishing / penipuan','Malware / berbahaya','Konten dilarang','Spam','Pelanggaran hak cipta','Lainnya'];
@@ -1134,7 +1256,7 @@ function renderReports(){
 window.resolveReports=async(siteId,block)=>{
   const rs=reportsOpen.filter(r=>r.siteId===siteId); if(!rs.length) return;
   try{ const b=db.batch(); rs.forEach(r=>b.update(db.collection('reports').doc(r.id),{status:'resolved',handledBy:currentUser.uid})); if(block) b.update(db.collection('sites').doc(siteId),{banned:true}); await b.commit();
-    if(block) notify(rs[0].ownerUid,{type:'moderation',text:`Website "${rs[0].siteTitle}" diblokir setelah laporan komunitas.`,siteId});
+    if(block){ notify(rs[0].ownerUid,{type:'moderation',text:`Website "${rs[0].siteTitle}" diblokir setelah laporan komunitas.`,siteId}); logAction('report-block',siteId,rs[0].siteTitle); } else logAction('report-dismiss',siteId,rs[0].siteTitle);
     toast(block?'Website diblokir & laporan selesai':'Laporan diabaikan','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); }
 };
 
@@ -1151,25 +1273,86 @@ window.openWarn=async(uid,siteId)=>{
 window.toggleSuspend=async(uid,cur)=>{
   if(profile.role!=='owner') return; const t=allUsers.find(u=>u.uid===uid);
   if(t&&t.role==='owner'){ toast('Tidak bisa menangguhkan sesama owner','err'); return; }
-  if(cur){ try{ await db.collection('users').doc(uid).update({banned:false,banReason:''}); toast('Akun dipulihkan','ok'); loadUsers(); }catch(e){ toast('Gagal: '+e.message,'err'); } return; }
+  if(cur){ try{ await db.collection('users').doc(uid).update({banned:false,banReason:''}); logAction('unsuspend',uid,t?t.displayName:''); toast('Akun dipulihkan','ok'); loadUsers(); }catch(e){ toast('Gagal: '+e.message,'err'); } return; }
   openSheet(sheetHead('Tangguhkan akun')+`<p class="hint" style="margin:0 0 10px">${esc(t?t.displayName:'Pengguna')} tidak akan bisa memakai WebFolio sampai dipulihkan.</p>
    <div class="field"><label>Alasan (ditampilkan ke pengguna)</label><textarea id="sReason" rows="3" maxlength="200"></textarea></div>
    <button class="btn danger" style="width:100%" id="sGo">Tangguhkan akun</button>`);
-  $('sGo').onclick=async()=>{ try{ await db.collection('users').doc(uid).update({banned:true,banReason:$('sReason').value.trim()}); closeSheet(); toast('Akun ditangguhkan','ok'); loadUsers(); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+  $('sGo').onclick=async()=>{ try{ await db.collection('users').doc(uid).update({banned:true,banReason:$('sReason').value.trim()}); logAction('suspend',uid,t?t.displayName:''); closeSheet(); toast('Akun ditangguhkan','ok'); loadUsers(); }catch(e){ toast('Gagal: '+e.message,'err'); } };
 };
 
 /* --- dasbor --- */
-window.toggleMaint=async()=>{ if(profile.role!=='owner') return; const next=!appCfg.maintenance; try{ await db.collection('config').doc('app').set({maintenance:next,maintenanceMsg:($('mMsg')?$('mMsg').value.trim():'')},{merge:true}); toast(next?'Mode pemeliharaan aktif':'Pemeliharaan dimatikan','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
+window.toggleMaint=async()=>{ if(profile.role!=='owner') return; const next=!appCfg.maintenance; try{ await db.collection('config').doc('app').set({maintenance:next,maintenanceMsg:($('mMsg')?$('mMsg').value.trim():'')},{merge:true}); logAction('maintenance',null,next?'diaktifkan':'dimatikan'); toast(next?'Mode pemeliharaan aktif':'Pemeliharaan dimatikan','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); } };
 async function renderDash(){
   if(!isMod()) return; const owner=profile.role==='owner', rep=groupReports().length;
   const card=(i,n,l,cls,go)=>`<div class="dc ${cls||''} ${go?'click':''}" ${go?`onclick="showView('${go}')"`:''}><div class="ic">${ic(i,18)}</div><div class="n">${n}</div><div class="l">${l}</div></div>`;
   $('dashBody').innerHTML=`<div class="head"><div><h2>Dasbor ${owner?'Owner':'Admin'}</h2><p>Ringkasan komunitas dan alat moderasi.</p></div></div>
    <div class="dash" id="dashGrid">${card('review',pendingSites.length,'Menunggu tinjauan',pendingSites.length?'warn':'','review')}${card('flag',rep,'Website dilaporkan',rep?'bad':'','reports')}${card('mega',anns.filter(annOn).length,'Pengumuman aktif','ok','ann')}</div>
    <div class="panel"><h3>Aksi cepat</h3><div class="actGrid"><button class="btn primary sm" onclick="openAnnForm()">${ic('mega',15)} Buat pengumuman</button><button class="btn sm" onclick="showView('review')">Tinjau website</button><button class="btn sm" onclick="showView('reports')">Lihat laporan</button>${owner?`<button class="btn sm" onclick="showView('users')">Kelola pengguna</button>`:''}</div></div>
-   ${owner?`<div class="panel"><h3>Mode pemeliharaan</h3><p class="hint" style="margin:0 0 10px">Saat aktif, pengguna biasa melihat halaman pemeliharaan. Admin dan owner tetap bisa masuk.</p><div class="field"><input id="mMsg" placeholder="Pesan untuk pengguna (opsional)" value="${esc(appCfg.maintenanceMsg||'')}" maxlength="140"></div><button class="btn ${appCfg.maintenance?'danger':''} sm" onclick="toggleMaint()">${appCfg.maintenance?'Matikan pemeliharaan':'Aktifkan pemeliharaan'}</button></div>`:''}`;
+   ${owner?`<div class="panel"><h3>Mode pemeliharaan</h3><p class="hint" style="margin:0 0 10px">Saat aktif, pengguna biasa melihat halaman pemeliharaan. Admin dan owner tetap bisa masuk.</p><div class="field"><input id="mMsg" placeholder="Pesan untuk pengguna (opsional)" value="${esc(appCfg.maintenanceMsg||'')}" maxlength="140"></div><button class="btn ${appCfg.maintenance?'danger':''} sm" onclick="toggleMaint()">${appCfg.maintenance?'Matikan pemeliharaan':'Aktifkan pemeliharaan'}</button></div>
+   <div class="panel"><h3>Kelola kategori website</h3><p class="hint" style="margin:0 0 10px">Kategori yang tersedia di form Bagikan dan filter Jelajah.</p><div class="catEdit" id="catEditBox">${catList().map(c=>`<span class="cx">${esc(c)}<button onclick="removeCat('${esc(c).replace(/'/g,"&#39;")}')">${ic('x',12)}</button></span>`).join('')}</div><div style="display:flex;gap:8px"><input class="inp" id="newCat" placeholder="Nama kategori baru" style="flex:1" maxlength="24"><button class="btn sm" onclick="addCat()">Tambah</button></div></div>
+   <div class="panel"><h3>Ekspor data</h3><p class="hint" style="margin:0 0 10px">Unduh salinan seluruh data untuk cadangan.</p><div class="actGrid"><button class="btn sm" onclick="exportUsersCSV()">${ic('csv',14)} Pengguna (CSV)</button><button class="btn sm" onclick="exportSitesCSV()">${ic('csv',14)} Website (CSV)</button><button class="btn sm" onclick="exportAllJSON()">${ic('download',14)} Semua data (JSON)</button></div></div>
+   <div class="panel"><h3>Pertumbuhan pengguna</h3><p class="hint" style="margin:0 0 6px">Pendaftar baru per minggu, 8 minggu terakhir.</p><div class="growBars" id="growBars"></div></div>`:''}`;
   if(owner){ try{ const [u,f,c]=await Promise.all([db.collection('users').get(),db.collection('feedback').limit(500).get(),db.collection('chats').limit(500).get()]);
     const us=u.docs.map(d=>d.data()), wk=Date.now()-6048e5, box=$('dashGrid'); if(!box||box.dataset.done) return; box.dataset.done='1';
-    box.insertAdjacentHTML('beforeend',card('users',us.length,'Total pengguna')+card('shield',us.filter(x=>x.role==='admin').length,'Admin')+card('sparkle',us.filter(x=>x.createdAt&&x.createdAt.toMillis&&x.createdAt.toMillis()>wk).length,'Pengguna baru (7 hari)','ok')+card('ban',us.filter(x=>x.banned).length,'Ditangguhkan',us.some(x=>x.banned)?'bad':'')+card('feedback',f.size,'Masukan masuk','','feedback')+card('chat',c.size,'Percakapan chat','','chat')); }catch(e){} }
+    box.insertAdjacentHTML('beforeend',card('users',us.length,'Total pengguna')+card('shield',us.filter(x=>x.role==='admin').length,'Admin')+card('sparkle',us.filter(x=>x.createdAt&&x.createdAt.toMillis&&x.createdAt.toMillis()>wk).length,'Pengguna baru (7 hari)','ok')+card('ban',us.filter(x=>x.banned).length,'Ditangguhkan',us.some(x=>x.banned)?'bad':'')+card('feedback',f.size,'Masukan masuk','','feedback')+card('chat',c.size,'Percakapan chat','','chat'));
+    const weeks=[]; for(let i=7;i>=0;i--){ const start=Date.now()-i*6048e5, end=start+6048e5; weeks.push({start,end,n:0}); }
+    us.forEach(x=>{ const t=x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():0; const w=weeks.find(w=>t>=w.start&&t<w.end); if(w) w.n++; });
+    const max=Math.max(1,...weeks.map(w=>w.n)); const gb=$('growBars'); if(gb) gb.innerHTML=weeks.map(w=>`<div class="gb" style="height:${Math.max(4,w.n/max*90)}px" title="${w.n} pengguna baru"><small>${w.n}</small></div>`).join('');
+  }catch(e){} }
+}
+window.addCat=async()=>{
+  if(profile.role!=='owner') return; const v=$('newCat').value.trim(); if(!v) return;
+  const list=[...new Set([...catList(),v])];
+  try{ await db.collection('config').doc('app').set({categories:list},{merge:true}); $('newCat').value=''; toast('Kategori ditambahkan','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); }
+};
+window.removeCat=async(name)=>{
+  if(profile.role!=='owner') return; const list=catList().filter(c=>c!==name); if(!list.length){ toast('Minimal harus ada 1 kategori','err'); return; }
+  try{ await db.collection('config').doc('app').set({categories:list},{merge:true}); toast('Kategori dihapus','ok'); }catch(e){ toast('Gagal: '+e.message,'err'); }
+};
+window.exportAllJSON=async()=>{
+  if(profile.role!=='owner') return; toast('Menyiapkan ekspor...','');
+  try{
+    const [u,s,f]=await Promise.all([db.collection('users').get(),db.collection('sites').get(),db.collection('feedback').get()]);
+    const data={exportedAt:new Date().toISOString(),users:u.docs.map(d=>({id:d.id,...d.data()})),sites:s.docs.map(d=>({id:d.id,...d.data()})),feedback:f.docs.map(d=>({id:d.id,...d.data()}))};
+    const clean=JSON.parse(JSON.stringify(data,(k,v)=>v&&v.toMillis?v.toMillis():v));
+    const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(clean,null,2)],{type:'application/json'})); a.download='webfolio-backup.json'; a.click(); URL.revokeObjectURL(a.href);
+    toast('Ekspor selesai','ok');
+  }catch(e){ toast('Gagal: '+e.message,'err'); }
+};
+
+/* ============ Lencana, Tim, Papan Peringkat, Log Aktivitas ============ */
+async function logAction(action,targetId,targetLabel,detail){
+  if(!isMod()) return;
+  try{ await db.collection('auditLog').add({action,targetId:targetId||'',targetLabel:targetLabel||'',detail:detail||'',byUid:currentUser.uid,byName:profile.displayName,createdAt:FV.serverTimestamp()}); }catch(e){}
+}
+async function syncTeam(uid,u){
+  const qualifies=u.role==='owner'||u.role==='admin'||(u.badges&&u.badges.length>0);
+  const ref=db.collection('team').doc(uid);
+  try{ if(qualifies) await ref.set({displayName:u.displayName||'',avatarUrl:u.avatarUrl||'',bio:u.bio||'',role:u.role,badges:u.badges||[],updatedAt:FV.serverTimestamp()}); else await ref.delete(); }catch(e){}
+}
+const ACTION_LABEL={ban:'Memblokir website',unban:'Membuka blokir website',approve:'Menyetujui website',reject:'Menolak website',role:'Mengubah role',badge:'Mengubah lencana',suspend:'Menangguhkan akun',unsuspend:'Memulihkan akun',feature:'Menjadikan Pilihan',unfeature:'Menghapus dari Pilihan','report-block':'Memblokir dari laporan','report-dismiss':'Mengabaikan laporan',maintenance:'Mode pemeliharaan',announcement:'Membuat pengumuman'};
+const ACTION_ICON={ban:'ban',unban:'check',approve:'check',reject:'ban',role:'crown',badge:'star',suspend:'ban',unsuspend:'check',feature:'star',unfeature:'star','report-block':'flag','report-dismiss':'flag',maintenance:'shield',announcement:'mega'};
+function renderAuditLog(){
+  if(profile.role!=='owner') return;
+  $('logList').innerHTML=auditLog.length?auditLog.map(l=>`<div class="logRow"><div class="li">${ic(ACTION_ICON[l.action]||'activity',16)}</div><div style="flex:1;min-width:0"><b>${esc(ACTION_LABEL[l.action]||l.action)}</b>${l.targetLabel?' — '+esc(l.targetLabel):''}<small>oleh ${esc(l.byName)} · ${timeAgo(l.createdAt)}${l.detail?' · '+esc(l.detail):''}</small></div></div>`).join(''):emptyHtml('activity','Belum ada aktivitas tercatat.');
+}
+
+/* --- Tim & Kontributor (halaman publik) --- */
+async function renderTeam(){
+  $('teamGrid').innerHTML='<div class="skel"></div>'.repeat(4);
+  try{
+    const qs=await db.collection('team').get();
+    teamList=qs.docs.map(d=>({uid:d.id,...d.data()})).sort((a,b)=>{ const o={owner:0,admin:1}; const ra=o[a.role]??2, rb=o[b.role]??2; return ra-rb||(a.displayName||'').localeCompare(b.displayName||''); });
+    $('teamGrid').innerHTML=teamList.length?teamList.map(u=>`<div class="teamCard" onclick="openProfile('${u.uid}')">${avatar(u,64)}<h4>${esc(u.displayName)}</h4><div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:6px">${u.role==='owner'?`<span class="bdg" style="background:#facc1522;color:#facc15">${ic('crown',11)}Owner/Developer</span>`:u.role==='admin'?`<span class="bdg" style="background:#79a8ff22;color:#79a8ff">${ic('shield',11)}Admin</span>`:''}${(u.badges||[]).map(badgeChip).join('')}</div>${u.bio?`<p class="hint" style="margin:0">${esc(u.bio)}</p>`:''}</div>`).join(''):emptyHtml('team','Tim belum diatur oleh owner.');
+  }catch(e){ $('teamGrid').innerHTML='<div class="err">Gagal memuat: '+esc(e.message)+'</div>'; }
+}
+
+/* --- Papan Peringkat (dihitung dari website yang sudah tampil di Jelajah) --- */
+function renderLeaderboard(){
+  const byOwner={};
+  feedSites.filter(s=>!s.banned&&isApproved(s)).forEach(s=>{ const k=s.ownerUid; if(!byOwner[k]) byOwner[k]={uid:k,name:s.ownerName,role:s.ownerRole,badges:s.ownerBadges,likes:0,sites:0}; byOwner[k].likes+=(s.likes||[]).length; byOwner[k].sites+=1; });
+  const list=Object.values(byOwner).sort((a,b)=>b.likes-a.likes).slice(0,20);
+  $('lbList').innerHTML=list.length?list.map((u,i)=>`<div class="lbRow"><div class="rank">${i+1}</div><div class="who" style="cursor:pointer" onclick="openProfile('${u.uid}')">${nameWithBadges({displayName:u.name,role:u.role,badges:u.badges},36)}</div><div class="sc"><b>${u.likes} ♥</b>${u.sites} website</div></div>`).join(''):emptyHtml('trophy','Belum ada data. Bagikan dan sukai website untuk memulai papan peringkat!');
 }
 
 /* ============ Legal & overlay ============ */
